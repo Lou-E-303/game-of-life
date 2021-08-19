@@ -9,9 +9,9 @@ def print_board(board):
     print("\n")
 
 
-def set_square(board, row_index, column_index, alive_or_dead):
+def set_square(board, row_index, column_index, set_alive):
     try:
-        board[row_index][column_index] = 1 if alive_or_dead else 0
+        board[row_index][column_index] = 1 if set_alive else 0
     except IndexError:
         print("Index out of bounds: Square (" + str(row_index) + ", " + str(column_index) + ") not set")
 
