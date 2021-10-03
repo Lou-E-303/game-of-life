@@ -1,9 +1,10 @@
 import utils_board
+import utils_simulation
 
 rows = 8
 columns = 8
 board = utils_board.setup_board(rows, columns)
 
-utils_board.print_board(board)
-utils_board.set_square(board, 0, 0, True)
+board = utils_simulation.set_initial_position(board)
+
 utils_board.print_board(board)
