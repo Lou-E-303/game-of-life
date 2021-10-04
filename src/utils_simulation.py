@@ -12,20 +12,34 @@ def run_simulation(initial_board):
     while True:
         for i, row in enumerate(initial_board):
             for j, value in enumerate(row):
-                # Get neighbours
-                # Count no. of alive neighbours
-                # If Alive...
-                    # If alive neighbours <= 3 or <= 4...
-                        # Kill it
-                # If Dead...
-                    # If alive neighbours == 3...
-                            # Set alive
+                neighbours = get_neighbours(initial_board, i, j)
+
+                alive_neighbour_count = get_alive_neighbour_count(neighbours)
+
+                if initial_board[i][j] == 1 and (3 <= alive_neighbour_count <= 4):
+                    new_board[i][j] = 0
+                if initial_board[i][j] == 0 and alive_neighbour_count == 3:
+                    new_board[i][j] = 1
 
         utils_board.print_board(new_board)
 
 
-def get_neighbours(initial_board):
-    # Do stuff
+# TODO currently this errors because we haven't handled wrapping - this is the next step
+def get_neighbours(initial_board, i, j):
+    neighbours = [
+        initial_board[i-1][j-1], initial_board[i-1][j], initial_board[i-1][j+1],
+        initial_board[i][j-1],                          initial_board[i][j+1],
+        initial_board[i+1][j-1], initial_board[i+1][j], initial_board[i+1][j+1]
+    ]
+
+    return neighbours
+
 
 def get_alive_neighbour_count(neighbours):
-    # Do stuff
+    neighbour_count = 0
+
+    for i, neighbour in enumerate(neighbours):
+        if neighbours[i] == 1:
+            neighbour_count += 1
+
+    return neighbour_count
