@@ -27,11 +27,6 @@ def run_simulation(initial_board):
         utils_board.print_board(new_board)
 
 
-# TODO currently this errors because we haven't handled wrapping - this is the next step
-# The best way is probably going to be conditional assignment of top_left, top_middle etc...
-# TODO 2: Electric Bugaloo - is there actually any reason to get the neighbours themselves
-#  instead of just getting the count?
-
 def get_neighbours(initial_board, i, j):
     top_left = initial_board[(i-1 + 8) % 8][(j-1 + 8) % 8]
     top_middle = initial_board[(i-1 + 8) % 8][j]
