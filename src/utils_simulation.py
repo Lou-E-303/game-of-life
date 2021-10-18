@@ -18,7 +18,7 @@ def run_simulation(initial_board):
 
                 alive_neighbour_count = get_alive_neighbour_count(neighbours)
 
-                if initial_board[i][j] == 1 and (3 <= alive_neighbour_count <= 4):
+                if initial_board[i][j] == 1 and not (alive_neighbour_count == 2 or alive_neighbour_count == 3):
                     new_board[i][j] = 0
                 if initial_board[i][j] == 0 and alive_neighbour_count == 3:
                     new_board[i][j] = 1
