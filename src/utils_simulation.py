@@ -38,9 +38,9 @@ def get_neighbours(initial_board, i, j):
     bottom_right = initial_board[i+1][j+1]
 
     neighbours = [
-        initial_board[i-1][j-1], initial_board[i-1][j], initial_board[i-1][j+1],
-        initial_board[i][j-1],                          initial_board[i][j+1],
-        initial_board[i+1][j-1], initial_board[i+1][j], initial_board[i+1][j+1]
+        top_left,    top_middle,    top_right,
+        left,                       right,
+        bottom_left, bottom_middle, bottom_right
     ]
 
     return neighbours
