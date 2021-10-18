@@ -1,3 +1,5 @@
+from time import sleep
+
 import utils_board
 
 
@@ -21,21 +23,26 @@ def run_simulation(initial_board):
                 if initial_board[i][j] == 0 and alive_neighbour_count == 3:
                     new_board[i][j] = 1
 
+        sleep(1)
         utils_board.print_board(new_board)
 
 
 # TODO currently this errors because we haven't handled wrapping - this is the next step
 # The best way is probably going to be conditional assignment of top_left, top_middle etc...
+# TODO 2: Electric Bugaloo - is there actually any reason to get the neighbours themselves
+#  instead of just getting the count?
 
 def get_neighbours(initial_board, i, j):
-    top_left = initial_board[i-1][j-1]
-    top_middle = initial_board[i-1][j]
-    top_right = initial_board[i-1][j+1]
-    left = initial_board[i][j-1]
-    right = initial_board[i][j+1]
-    bottom_left = initial_board[i+1][j-1]
-    bottom_middle = initial_board[i+1][j]
-    bottom_right = initial_board[i+1][j+1]
+    top_left = initial_board[(i-1 + 8) % 8][(j-1 + 8) % 8]
+    top_middle = initial_board[(i-1 + 8) % 8][j]
+    top_right = initial_board[(i-1 + 8) % 8][(j+1 + 8) % 8]
+
+    left = initial_board[i][(j-1 + 8) % 8]
+    right = initial_board[i][(j+1 + 8) % 8]
+
+    bottom_left = initial_board[(i+1 + 8) % 8][(j-1 + 8) % 8]
+    bottom_middle = initial_board[(i+1 + 8) % 8][j]
+    bottom_right = initial_board[(i+1 + 8) % 8][(j+1 + 8) % 8]
 
     neighbours = [
         top_left,    top_middle,    top_right,

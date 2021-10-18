@@ -29,7 +29,7 @@ def set_square(board, row_index, column_index, set_alive):
 def set_random_grid(board, chance_cell_is_alive):
     for i, row in enumerate(board):
         for j, value in enumerate(row):
-            if random.randint(1, 100) > chance_cell_is_alive:  # Since chance_cell... is a percentage
+            if random.randint(1, 100) > chance_cell_is_alive:  # Since chance_cell_is_alive is a percentage
                 board[i][j] = 0
             else:
                 board[i][j] = 1
