@@ -25,7 +25,18 @@ def run_simulation(initial_board):
 
 
 # TODO currently this errors because we haven't handled wrapping - this is the next step
+# The best way is probably going to be conditional assignment of top_left, top_middle etc...
+
 def get_neighbours(initial_board, i, j):
+    top_left = initial_board[i-1][j-1]
+    top_middle = initial_board[i-1][j]
+    top_right = initial_board[i-1][j+1]
+    left = initial_board[i][j-1]
+    right = initial_board[i][j+1]
+    bottom_left = initial_board[i+1][j-1]
+    bottom_middle = initial_board[i+1][j]
+    bottom_right = initial_board[i+1][j+1]
+
     neighbours = [
         initial_board[i-1][j-1], initial_board[i-1][j], initial_board[i-1][j+1],
         initial_board[i][j-1],                          initial_board[i][j+1],
