@@ -4,8 +4,7 @@ from time import sleep
 import utils_board
 
 
-def set_initial_position(board):
-    percent_chance_cell_is_alive = 30
+def set_initial_position(board, percent_chance_cell_is_alive=30):
     board = utils_board.set_random_grid(board, percent_chance_cell_is_alive)
     return board
 
