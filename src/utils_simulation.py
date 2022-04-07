@@ -12,6 +12,7 @@ def set_initial_position(board, percent_chance_cell_is_alive=30):
 def run_simulation(initial_board):
     new_board = copy.deepcopy(initial_board)
     while True:
+        utils_board.print_board(new_board)
         for i, row in enumerate(initial_board):
             for j, value in enumerate(row):
                 neighbours = get_neighbours(initial_board, i, j)
@@ -24,7 +25,6 @@ def run_simulation(initial_board):
                     new_board[i][j] = 1
 
         sleep(1)
-        utils_board.print_board(new_board)
         initial_board = copy.deepcopy(new_board)
 
 
